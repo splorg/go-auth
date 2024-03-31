@@ -18,32 +18,32 @@ func Setup() {
 }
 
 func passwordStrength(fl validator.FieldLevel) bool {
-    password := fl.Field().String()
+  password := fl.Field().String()
 
-    if len(password) < 8 {
-        return false
-    }
+  if len(password) < 8 {
+    return false
+  }
 
-    hasDigit := false
-    for _, char := range password {
-        if unicode.IsDigit(char) {
-            hasDigit = true
-            break
-        }
+  hasDigit := false
+  for _, char := range password {
+    if unicode.IsDigit(char) {
+      hasDigit = true
+      break
     }
-    if !hasDigit {
-        return false
-    }
+  }
+  if !hasDigit {
+    return false
+  }
 
-    hasUpper := false
-    for _, char := range password {
-        if unicode.IsUpper(char) {
-            hasUpper = true
-            break
-        }
+  hasUpper := false
+  for _, char := range password {
+    if unicode.IsUpper(char) {
+      hasUpper = true
+      break
     }
-    
-    return hasUpper
+  }
+
+  return hasUpper
 }
 
 func ValidateStruct(s interface{}) error {
